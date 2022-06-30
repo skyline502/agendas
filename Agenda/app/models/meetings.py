@@ -11,8 +11,8 @@ class Meeting(db.Model):
   presenter_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   start = db.Column(db.String(16), nullable=False)
   end = db.Column(db.String(16), nullable=False)
-  created_at = db.Column(db.Datetime(timezone=True), server_default=func.now())
-  updated_at = db.Column(db.Datetime(timezone=True), server_default=func.now())
+  created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+  updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
   topics = relationship('Topic', backref='meeting', cascade='all,delete-orphan')
 
