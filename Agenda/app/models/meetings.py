@@ -23,7 +23,7 @@ class Meeting(db.Model):
       'presenter_id': self.presenter_id,
       'start': self.start,
       'end': self.end,
-      'topics': [{'id': topic.id, 'title': topic.title, 'time_estimate': topic.time_estimate, 'description': topic.description} for topic in self.topics]
+      'topics': [{'id': topic.id, 'title': topic.title, 'time_estimate': topic.time_estimate, 'description': topic.description, 'meeting_id': topic.meeting_id} for topic in self.topics]
     }
 
 
@@ -39,6 +39,16 @@ class Topic(db.Model):
 
   comments = relationship('Comment', backref='topic', cascade='all,delete-orphan')
 
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'title': self.title,
+      'time_estimate': self.time_estimate,
+      'description': self.description,
+      'meeting_id': self.meeting_id,
+      'comments': [{'id': comment.id, 'comment': comment.comment, 'user_id': comment.user_id, 'topic_id': comment.topic_id, 'created_at': comment.created_at, 'updated_at': comment.updated_at} for comment in comments]
+    }
+
 class Comment(db.Model):
   __tablename__ = 'comments'
 
@@ -48,3 +58,13 @@ class Comment(db.Model):
   topic_id = db.Column(db.Integer, db.ForeignKey('topics.id', passive_deletes=True), nullable=False)
   created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
   updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'comment': self.comment,
+      'user_id': self.user_id,
+      'topic_id': self.topic_id,
+      'created_at': self.created_at,
+      'updated_at': self.updated_at
+    }
