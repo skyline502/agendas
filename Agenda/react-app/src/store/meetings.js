@@ -7,7 +7,7 @@ const getMeetings = (meetings) => ({
 });
 
 export const getAllMeetings = () => async dispatch => {
-  const response = await fetch('/api/meetings');
+  const response = await fetch('/api/meetings/');
   if (response.ok) {
     const meetings = await response.json();
     dispatch(getMeetings(meetings));
@@ -17,7 +17,7 @@ export const getAllMeetings = () => async dispatch => {
   return response;
 }
 
-const meetingReducer = (state = {meetings: [], action}) => {
+const meetingReducer = (state = {meetings: []}, action) => {
   let newState = {...state};
   switch(action.type) {
     case GET_ALL:

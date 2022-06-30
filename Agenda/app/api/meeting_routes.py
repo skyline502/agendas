@@ -14,4 +14,6 @@ def meetings():
   meeting_array = []
   for meeting in meetings:
     meeting_array.append(meeting.to_dict())
+  for meeting in meeting_array:
+        meeting['presenter_id'] = User.query.get(meeting['presenter_id']).to_dict()
   return {'meetings': meeting_array}
