@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideModal } from '../../store/modal';
-import { createAMeeting, getAllMeetings } from '../../store/meetings';
+import { editAMeeting, getAllMeetings } from '../../store/meetings';
 
 const EditMeetingForm = () => {
     const dispatch = useDispatch();
@@ -19,14 +19,14 @@ const EditMeetingForm = () => {
         e.preventDefault();
         let form = new FormData();
      
-  
+        form.append('id', meeting.id);
         form.append('presenter_id', user.id);
         form.append('title', title);
         form.append('start', start);
         form.append('end', end)
   
 
-        let data = await dispatch(createAMeeting(form));
+        let data = await dispatch(editAMeeting(form));
         if (data) {
           setErrors(data);
           dispatch(hideModal());
@@ -67,7 +67,7 @@ const EditMeetingForm = () => {
                     placeholder='MM/DD/YYYY HH:MM'
                     required={true}
                 />
-                <button className='create-meeting' type='submit'>create meeting</button>
+                <button className='create-meeting' type='submit'>edit meeting</button>
             </form>
         </div>
     )

@@ -3,6 +3,7 @@ from flask_login import login_required
 from app.models import db, User, Meeting, Topic, Comment
 from sqlalchemy import desc
 import json
+from datetime import datetime
 
 
 meeting_routes = Blueprint('meetings', __name__)
@@ -48,4 +49,19 @@ def delete_meeting(id):
   db.session.delete(meeting)
   db.session.commit()
   return {'meeting': id}
+
+@meeting_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_meeting(id):
+  print('does it get back here.....')
+  meeting = Meeting.query.get(id)
+
+
+  meeting.title = request.form['title']
+  meeting.start = request.form['start']
+  meeting.end = request.form['end']
+  meeting.updated_at = datetime.now()
+  db.session.commit()
+
+  return meeting.to_dict();  
 
