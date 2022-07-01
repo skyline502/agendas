@@ -72,6 +72,9 @@ const meetingReducer = (state = {meetings: []}, action) => {
       }
     case CREATE_MEETING:
       newState = {...state};
+      return newState;  
+    case DELETE_MEETING:
+      newState = {...state};
       return newState;   
     default:
       return state;
