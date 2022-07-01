@@ -40,3 +40,12 @@ def createmeeting():
       db.session.commit()
 
       return newMeeting.to_dict()
+
+@meeting_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_post(id):
+  meeting = Meeting.query.get(id)
+  db.session.delete(meeting)
+  db.session.commit()
+  return {'meeting': id}
+

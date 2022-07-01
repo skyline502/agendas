@@ -1,5 +1,6 @@
 const GET_ALL = 'meetings/getAll';
 const CREATE_MEETING = 'meetings/create';
+const DELETE_MEETING = 'meetings/delete';
 
 
 const getMeetings = (meetings) => ({
@@ -42,6 +43,21 @@ export const createAMeeting = (form) => async dispatch => {
   } else {
     return ['An error occurred. Please try again.']
   }
+}
+
+const deleteMeeting = (id) => ({
+  type: DELETE_MEETING,
+  id
+});
+
+export const deleteAMeeting = (id) => async dispatch => {
+  const response = await fetch(`/api/meetings/${id}`, {
+    method: 'DELETE',
+  });
+
+  const meeting = await response.json();
+
+  dispatch(deleteMeeting(meeting));
 }
 
 
