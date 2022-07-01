@@ -48,7 +48,7 @@ const MeetingForm = () => {
                 />
                 <label htmlFor='start'>Start</label>
                 <input
-                    type='text'
+                    type='time'
                     name='start'
                     value={start}
                     onChange={(e) => setStart(e.target.value)}
@@ -57,7 +57,7 @@ const MeetingForm = () => {
                 />
                 <label htmlFor='end'>End</label>
                 <input
-                    type='text'
+                    type='time'
                     name='end'
                     value={end}
                     onChange={(e) => setEnd(e.target.value)}
