@@ -33,6 +33,9 @@ const Home = () => {
               {meeting.topics?.map(topic => (
                 <div key={topic.id}>
                   <div>{topic.title}:{topic.description}({topic.time_estimate}&nbsp;minutes)</div>
+                  {topic.comments?.map(comment => (
+                    <div key={comment.id}>{comment.user_id.username}:{comment.comment}</div>
+                  ))}
                 </div>
               ))}
             </ul>
