@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, Meeting, Topic, Comment
+from app.models import db, User, Meeting, Topic, Comment
 from sqlalchemy import desc
 import json
 
@@ -20,3 +20,23 @@ def meetings():
           for comment in topic['comments']:
             comment['user_id'] = User.query.get(comment['user_id']).to_dict()
   return {'meetings': meeting_array}
+
+@meeting_routes.route('/', methods=['POST'])
+@login_required
+def createmeeting():
+      title=request.form['title']
+      presenter_id=request.form['presenter_id']
+      start=request.form['start']
+      end=request.form['end']
+
+      newMeeting = Meeting(
+        title=request.form['title'],
+        presenter_id=request.form['presenter_id'],
+        start=request.form['start'],
+        end=request.form['end']
+      )
+
+      db.session.add(newMeeting)
+      db.session.commit()
+
+      return newMeeting.to_dict()

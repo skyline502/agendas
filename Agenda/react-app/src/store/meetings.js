@@ -1,4 +1,5 @@
 const GET_ALL = 'meetings/getAll';
+const CREATE_MEETING = 'meetings/create';
 
 
 const getMeetings = (meetings) => ({
@@ -17,6 +18,34 @@ export const getAllMeetings = () => async dispatch => {
   return response;
 }
 
+const createMeeting = (meeting) => ({
+  type: CREATE_MEETING,
+  meeting
+});
+
+export const createAMeeting = (form) => async dispatch => {
+  console.log(form, 'form is in the store....')
+  const response = await fetch('/api/meetings/', {
+    method: 'POST',
+    body: form,
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(createMeeting(data));
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+
+
 const meetingReducer = (state = {meetings: []}, action) => {
   let newState = {...state};
   switch(action.type) {
@@ -25,6 +54,9 @@ const meetingReducer = (state = {meetings: []}, action) => {
         ...state,
         meetings: [...action.meetings.meetings]
       }
+    case CREATE_MEETING:
+      newState = {...state};
+      return newState;   
     default:
       return state;
   }
