@@ -23,7 +23,7 @@ class Meeting(db.Model):
       'presenter_id': self.presenter_id,
       'start': self.start,
       'end': self.end,
-      'topics': [{'id': topic.id, 'title': topic.title, 'time_estimate': topic.time_estimate, 'description': topic.description, 'meeting_id': topic.meeting_id} for topic in self.topics]
+      'topics': [{'id': topic.id, 'title': topic.title, 'time_estimate': topic.time_estimate, 'description': topic.description, 'meeting_id': topic.meeting_id, 'comments': [{'id': comment.id, 'comment': comment.comment, 'user_id': comment.user_id, 'topic_id': comment.topic_id, 'created_at': comment.created_at, 'updated_at': comment.updated_at} for comment in topic.comments]} for topic in self.topics]
     }
 
 
@@ -46,7 +46,7 @@ class Topic(db.Model):
       'time_estimate': self.time_estimate,
       'description': self.description,
       'meeting_id': self.meeting_id,
-      'comments': [{'id': comment.id, 'comment': comment.comment, 'user_id': comment.user_id, 'topic_id': comment.topic_id, 'created_at': comment.created_at, 'updated_at': comment.updated_at} for comment in comments]
+      'comments': [{'id': comment.id, 'comment': comment.comment, 'user_id': comment.user_id, 'topic_id': comment.topic_id, 'created_at': comment.created_at, 'updated_at': comment.updated_at} for comment in self.comments]
     }
 
 class Comment(db.Model):
