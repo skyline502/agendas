@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
+import Modal from './components/modal/modal';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,6 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <Modal />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { hideModal } from '../../store/modal';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -39,6 +40,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
+    dispatch(hideModal())
     return <Redirect to='/' />;
   }
 
