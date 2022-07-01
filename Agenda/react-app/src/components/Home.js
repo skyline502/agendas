@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllMeetings } from "../store/meetings";
 import "./Home.css";
+import MeetingForm from "./meetings/meeting-form";
+import { showModal, setCurrentModal } from "../store/modal";
 
 const Home = () => {
   const user = useSelector((state) => state.session.user);
@@ -12,6 +14,11 @@ const Home = () => {
   formattedDate[0] += ".";
   formattedDate[1] += ",";
   formattedDate.join(" ");
+
+  const showAddMeeting = () => {
+    dispatch(setCurrentModal(MeetingForm));
+    dispatch(showModal());
+  }
 
   console.log(meetings, "meetings....");
   useEffect(() => {
@@ -25,7 +32,7 @@ const Home = () => {
     <div className="home-container">
       <h1>{formattedDate}'s Agenda</h1>
       <h2>Meetings Today</h2>
-      <button>Add Meeting</button>
+      <button onClick={() => showAddMeeting()}>Add Meeting</button>
       {meetings?.map((meeting) => (
         <div key={meeting.id} className="meeting-container">
           <div>Meeting: {meeting.title}</div>
