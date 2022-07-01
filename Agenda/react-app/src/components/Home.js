@@ -5,6 +5,8 @@ import "./Home.css";
 import MeetingForm from "./meetings/meeting-form";
 import { showModal, setCurrentModal } from "../store/modal";
 import { deleteAMeeting } from "../store/meetings";
+import EditMeetingForm from "./meetings/edit-meeting";
+import { setMeeting } from "../store/meetings";
 
 const Home = () => {
   const user = useSelector((state) => state.session.user);
@@ -24,6 +26,12 @@ const Home = () => {
   const deleteMeeting = (id) => {
     dispatch(deleteAMeeting(id));
     dispatch(getAllMeetings());
+  }
+
+  const editMeeting = (meeting) => {
+    dispatch(setMeeting(meeting));
+    dispatch(setCurrentModal(EditMeetingForm));
+    dispatch(showModal());
   }
 
   console.log(meetings, "meetings....");
@@ -65,7 +73,11 @@ const Home = () => {
           <div>Start: {meeting.start}</div>
           <div>End: {meeting.end}</div>
           <div>Presenter: {meeting.presenter_id.username}</div>
-          {meeting.presenter_id.id === user.id ? <button onClick={() => deleteMeeting(meeting.id)}>delete</button>:<></>}
+          {meeting.presenter_id.id === user.id ?
+            <div>
+              <button onClick={() => deleteMeeting(meeting.id)}>delete</button>
+              <button onClick={() => editMeeting(meeting)}>edit</button>
+            </div> : <></>}
         </div>
       ))}
     </div>
