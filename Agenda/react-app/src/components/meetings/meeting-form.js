@@ -9,25 +9,27 @@ const MeetingForm = () => {
     const [title, setTitle] = useState('');
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
+    const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
     console.log(user, 'this is the user....')
 
-    const onSubmit = async(e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         let form = new FormData();
-     
-  
+
+
         form.append('presenter_id', user.id);
         form.append('title', title);
         form.append('start', start);
-        form.append('end', end)
-  
+        form.append('end', end);
+        form.append('description', description);
+
 
         let data = await dispatch(createAMeeting(form));
         if (data) {
-          setErrors(data);
-          dispatch(hideModal());
-          return;
+            setErrors(data);
+            dispatch(hideModal());
+            return;
         }
         dispatch(hideModal());
         dispatch(getAllMeetings());
@@ -62,6 +64,14 @@ const MeetingForm = () => {
                     value={end}
                     onChange={(e) => setEnd(e.target.value)}
                     placeholder='MM/DD/YYYY HH:MM'
+                    required={true}
+                />
+                <input
+                    type='text'
+                    name='description'
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder='Enter a description'
                     required={true}
                 />
                 <button className='create-meeting' type='submit'>create meeting</button>

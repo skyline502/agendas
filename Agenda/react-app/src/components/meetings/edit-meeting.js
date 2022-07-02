@@ -11,6 +11,7 @@ const EditMeetingForm = () => {
     const [title, setTitle] = useState(meeting.title);
     const [start, setStart] = useState(meeting.start);
     const [end, setEnd] = useState(meeting.end);
+    const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
     console.log(user, 'this is the user....')
 
@@ -65,6 +66,14 @@ const EditMeetingForm = () => {
                     value={end}
                     onChange={(e) => setEnd(e.target.value)}
                     placeholder='MM/DD/YYYY HH:MM'
+                    required={true}
+                />
+                   <input
+                    type='text'
+                    name='description'
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder='Enter a description'
                     required={true}
                 />
                 <button className='create-meeting' type='submit'>edit meeting</button>

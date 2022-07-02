@@ -11,6 +11,7 @@ class Meeting(db.Model):
   presenter_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   start = db.Column(db.String(16), nullable=False)
   end = db.Column(db.String(16), nullable=False)
+  description = db.Column(db.String(200), nullable=False)
   created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
   updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
@@ -23,6 +24,7 @@ class Meeting(db.Model):
       'presenter_id': self.presenter_id,
       'start': self.start,
       'end': self.end,
+      'description': self.description,
       'comments': [{'id': comment.id, 'comment': comment.comment, 'user_id': comment.user_id, 'meeting_id': comment.meeting_id, 'created_at': comment.created_at, 'updated_at': comment.updated_at} for comment in self.comments]
     }
 

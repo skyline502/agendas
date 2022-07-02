@@ -33,7 +33,8 @@ def createmeeting():
         title=request.form['title'],
         presenter_id=request.form['presenter_id'],
         start=request.form['start'],
-        end=request.form['end']
+        end=request.form['end'],
+        description=request.form['description']
       )
 
       db.session.add(newMeeting)
@@ -59,6 +60,7 @@ def edit_meeting(id):
   meeting.title = request.form['title']
   meeting.start = request.form['start']
   meeting.end = request.form['end']
+  meeting.description = request.form['description']
   meeting.updated_at = datetime.now()
   db.session.commit()
 

@@ -24,6 +24,7 @@ def upgrade():
     sa.Column('presenter_id', sa.Integer(), nullable=False),
     sa.Column('start', sa.String(length=16), nullable=False),
     sa.Column('end', sa.String(length=16), nullable=False),
+    sa.Column('description', sa.String(length=200), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['presenter_id'], ['users.id'], ),

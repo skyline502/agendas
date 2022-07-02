@@ -66,7 +66,8 @@ const Home = () => {
       <button onClick={() => showAddMeeting()}>Add Meeting</button>
       {meetings?.map((meeting) => (
         <div key={meeting.id} className="meeting-container">
-          <div>Meeting: {meeting.title}</div>
+          <h1>Meeting Topic: {meeting.title}</h1>
+          <h2>Description:&nbsp;{meeting.description}</h2>
           <div>Start: {meeting.start}</div>
           <div>End: {meeting.end}</div>
           <div>Time Estimate:&nbsp;{timeEstimate(meeting.start, meeting.end)}</div>
