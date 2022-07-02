@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+button {
+    border-radius: 2px;
+    border: none;
+    margin: 2px;
+    height: 30px;
+    width: 100px;
+}
+
+button:hover {
+    cursor: pointer;
+}
