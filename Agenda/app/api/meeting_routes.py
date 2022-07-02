@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, User, Meeting, Topic, Comment
+from app.models import db, User, Meeting, Comment
 from sqlalchemy import desc
 import json
 from datetime import datetime
@@ -17,9 +17,8 @@ def meetings():
     meeting_array.append(meeting.to_dict())
   for meeting in meeting_array:
         meeting['presenter_id'] = User.query.get(meeting['presenter_id']).to_dict()
-        for topic in meeting['topics']:
-          for comment in topic['comments']:
-            comment['user_id'] = User.query.get(comment['user_id']).to_dict()
+        for comment in meeting['comments']:
+          comment['user_id'] = User.query.get(comment['user_id']).to_dict()
   return {'meetings': meeting_array}
 
 @meeting_routes.route('/', methods=['POST'])

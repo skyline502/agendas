@@ -34,6 +34,23 @@ const Home = () => {
     dispatch(showModal());
   }
 
+  function timeEstimate(start, end) { //https://stackoverflow.com/questions/10804042/calculate-time-difference-with-javascript
+    start = start.split(":");
+    end = end.split(":");
+    let startDate = new Date(0, 0, 0, start[0], start[1], 0);
+    let endDate = new Date(0, 0, 0, end[0], end[1], 0);
+    let diff = endDate.getTime() - startDate.getTime();
+    let hours = Math.floor(diff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    let minutes = Math.floor(diff / 1000 / 60);
+
+    // If using time pickers with 24 hours format, add the below line get exact hours
+    if (hours < 0)
+       hours = hours + 24;
+
+    return hours + " hours " + minutes + ' minutes.';
+}
+
   console.log(meetings, "meetings....");
   useEffect(() => {
     dispatch(getAllMeetings());
@@ -50,28 +67,9 @@ const Home = () => {
       {meetings?.map((meeting) => (
         <div key={meeting.id} className="meeting-container">
           <div>Meeting: {meeting.title}</div>
-          <div>
-            <ul>
-              Topics:
-              {meeting.topics?.map((topic) => (
-                <div key={topic.id}>
-                  <div>
-                    {topic.title}:{topic.description}({topic.time_estimate}
-                    &nbsp;minutes)
-                  </div>
-                  {topic.comments?.map((comment) => (
-                    <div key={comment.id}>
-                      {comment.user_id.username}:{comment.comment}
-                    </div>
-                  ))}
-                  <button>comment</button>
-                </div>
-              ))}
-            </ul>
-            <button>Add Topic</button>
-          </div>
           <div>Start: {meeting.start}</div>
           <div>End: {meeting.end}</div>
+          <div>Time Estimate:&nbsp;{timeEstimate(meeting.start, meeting.end)}</div>
           <div>Presenter: {meeting.presenter_id.username}</div>
           {meeting.presenter_id.id === user.id ?
             <div>
