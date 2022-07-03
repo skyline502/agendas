@@ -14,8 +14,8 @@ const Home = () => {
   const dispatch = useDispatch();
   let date = new Date();
   let formattedDate = date.toDateString().split(" ").slice(1);
-  formattedDate[0] += ".";
-  formattedDate[1] += ",";
+  formattedDate[0] += ". ";
+  formattedDate[1] += ", ";
   formattedDate.join(" ");
 
   const showAddMeeting = () => {
@@ -61,9 +61,10 @@ const Home = () => {
   // console.log(meetings, 'these are the meetings')
   return (
     <div className="home-container">
-      <h1>{formattedDate}'s Agenda</h1>
-      <h2>Meetings Today</h2>
-      <button onClick={() => showAddMeeting()}>Add Meeting</button>
+      <div className="home-header">
+        <h3>Today's Date:&nbsp;{formattedDate}</h3>
+        <button onClick={() => showAddMeeting()} className='add-meeting'>Add Meeting</button>
+      </div>
       {meetings?.map((meeting) => (
         <div key={meeting.id} className="meeting-container">
           <h1>Meeting Topic: {meeting.title}</h1>
@@ -76,8 +77,8 @@ const Home = () => {
           </div>
           {meeting.presenter_id.id === user.id ?
             <div>
-              <button onClick={() => deleteMeeting(meeting.id)}>delete</button>
-              <button onClick={() => editMeeting(meeting)}>edit</button>
+              <button className='user-buttons' onClick={() => deleteMeeting(meeting.id)}>delete</button>
+              <button className='user-buttons' onClick={() => editMeeting(meeting)}>edit</button>
             </div> : <></>}
         </div>
       ))}

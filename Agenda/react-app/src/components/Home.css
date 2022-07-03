@@ -15,6 +15,44 @@
   margin: 0;
 }
 
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0px;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightgray;
+  height: 35px;
+  padding: 5px;
+  border-radius: 2px;
+  width: 100%;
+  margin-bottom: 10px;
+  position: sticky;
+  top: 45px;
+  right: 0;
+}
+
+.home-header > h3 {
+  margin-left: 10px;
+}
+
+.user-buttons {
+  background-color: darkblue;
+  color: white;
+}
+
+.add-meeting {
+  background-color: darkblue;
+  color: white;
+}
+
 .meeting-container > h2 {
   margin-top: 0;
 }

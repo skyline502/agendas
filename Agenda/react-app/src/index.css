@@ -1,18 +1,38 @@
 /* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
 button {
     border-radius: 2px;
     border: none;
-    margin: 2px;
+    margin: 10px;
     height: 30px;
     width: 100px;
+    font-family: 'Ubuntu';
+    transition-duration: 0.2s;
 }
 
 button:hover {
     cursor: pointer;
+    opacity: .8;
+    transform: scale(0.98);
 }
 
 .logout {
     background-color: orange;
     height: 25px;
     color: white;
+}
+
+body {
+    background-color: whitesmoke;
+    margin: 0;
+    display:block;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: 'Ubuntu';
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
