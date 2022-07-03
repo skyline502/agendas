@@ -23,6 +23,7 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
+            <h4><i className="fas fa-user"></i>&nbsp;&nbsp;{user.username}</h4>
             <LogoutButton />
           </li>
         </ul>

@@ -67,7 +67,10 @@ const Home = () => {
       </div>
       {meetings?.map((meeting) => (
         <div key={meeting.id} className="meeting-container">
-          <h1>Meeting Topic: {meeting.title}</h1>
+          <div className="meeting-title">
+            <h1>Meeting Topic:</h1>
+            <h2> {meeting.title}</h2>
+          </div>
           <h3>{meeting.description}</h3>
           <div className="meeting-details">
             <div>Start: {meeting.start}</div>

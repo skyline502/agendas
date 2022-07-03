@@ -15,6 +15,26 @@
   margin: 0;
 }
 
+.meeting-title {
+  display: flex;
+  align-items: center;
+  border: 2px solid darkblue;
+  background-color: darkblue;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.meeting-title > h1 {
+  color: lightblue;
+  margin-left: 10px;
+}
+
+.meeting-title > h2 {
+  color: white;
+  margin-left: 10px;
+  font-size: 30px;
+}
+
 
 .home-container {
   display: flex;
