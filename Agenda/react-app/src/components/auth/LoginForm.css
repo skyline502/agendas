@@ -1,0 +1,218 @@
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    width: 35vw;
+    height: 65vh;
+    color: white;
+  }
+  
+  .about-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+  }
+  
+  .about-message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    font-family: 'Helvetica';
+    font-size: 16px;
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid lightgray; */
+    width: 35vw;
+    height: 65vh;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .login-logo {
+    height: 160px;
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+  
+  .login-container > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin-top: 25px;
+  }
+  
+  .login-container > form input {
+    height: 25px;
+    width: 292px;
+    margin-bottom: 5px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+  }
+  
+  .login-container > form > button {
+    background-color: black;
+    border: 0;
+    color: white;
+    margin-top: 5px;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Bebas Neue';
+    transition-duration: 0.5s;
+  }
+  
+  .login-container > form > button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid lightgray;
+    transform: scale(0.95);
+  }
+  
+  .login-sign-up {
+    display: flex;
+    align-items: center;
+    height: 16px;
+    margin-top: 10px;
+  }
+  
+  .login-sign-up > button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    text-decoration: none;
+    color: red;
+    font-family: "Bebas Neue";
+    font-size:16px;
+    transition-duration: 0.5s;
+  }
+  
+  .login-sign-up> button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  
+  .demo-btn {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .demo {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    font-family: 'Bebas Neue';
+    font-size: 16px;
+    color: red;
+    height: 16px;
+    transition-duration: 0.5s;
+  }
+  
+  .demo:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  
+  .sign-up-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lightgray;
+    width: 35vw;
+    height: auto;
+    background-color: white;
+  }
+  
+  .sign-up-container > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin-top: 25px;
+  }
+  
+  .sign-up-container > form input {
+    height: 25px;
+    width: 292px;
+    margin-bottom: 5px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+  }
+  
+  .aws-upload {
+    opacity: 0;
+  }
+  
+  .sign-up-container > form > button {
+    background-color: black;
+    border: 0;
+    color: white;
+    margin-top: 5px;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Bebas Neue';
+    transition-duration: 0.5s;
+  }
+  
+  .sign-up-container > form > button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    border: 1px solid lightgray;
+  }
+  
+  .login-container > form > button:hover {
+    cursor: pointer;
+    color: black;
+  }
+  
+  .aws:hover {
+    cursor: pointer;
+  }
+  
+  .cancel-sign-up {
+    background-color: transparent;
+    border: 0;
+    font-family: 'Bebas Neue';
+    font-size: 16px;
+    text-decoration: none;
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition-duration: 0.5s;
+  }
+  
+  .cancel-sign-up:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  

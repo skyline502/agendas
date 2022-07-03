@@ -12,11 +12,11 @@ const Home = () => {
   const user = useSelector((state) => state.session.user);
   const meetings = useSelector((state) => state.meetings.meetings);
   const dispatch = useDispatch();
-  let date = new Date();
-  let formattedDate = date.toDateString().split(" ").slice(1);
-  formattedDate[0] += ". ";
-  formattedDate[1] += ", ";
-  formattedDate.join(" ");
+  let date = new Date().toLocaleDateString();
+  // let formattedDate = date.toDateString().split(" ").slice(1);
+  // formattedDate[0] += ". ";
+  // formattedDate[1] += ", ";
+  // formattedDate.join(" ");
 
   const showAddMeeting = () => {
     dispatch(setCurrentModal(MeetingForm));
@@ -62,7 +62,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="home-header">
-        <h3>Today's Date:&nbsp;{formattedDate}</h3>
+        <h4>Today's Date:&nbsp;{date}</h4>
         <button onClick={() => showAddMeeting()} className='add-meeting'>+ Meeting</button>
       </div>
       {meetings?.map((meeting) => (

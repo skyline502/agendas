@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import { showModal, setCurrentModal } from '../../store/modal';
 import SignUpForm from './SignUpForm';
+import './LoginForm.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -41,6 +42,7 @@ const LoginForm = () => {
   return (
     <div className='splash-container'>
       <div className='login-container'>
+        <h1>Please Login</h1>
         <form onSubmit={onLogin}>
           <div>
             {errors.map((error, ind) => (
