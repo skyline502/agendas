@@ -36,3 +36,33 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: whitesmoke;
+    color: darkblue;
+    border-radius: 5px;
+    width: 30vw;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.create-meeting {
+    background-color: orange;
+    color: darkblue;
+    font-family: 'Ubuntu';
+    font-weight: bold;
+}
+
+textarea {
+    height: 100px;
+}

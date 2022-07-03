@@ -36,7 +36,7 @@ const MeetingForm = () => {
     }
 
     return (
-        <div>
+        <div className='form-container'>
             <h1>Add a Meeting</h1>
             <form onSubmit={onSubmit}>
                 <label htmlFor='title'>Title</label>
@@ -66,7 +66,7 @@ const MeetingForm = () => {
                     placeholder='MM/DD/YYYY HH:MM'
                     required={true}
                 />
-                <input
+                <textarea
                     type='text'
                     name='description'
                     value={description}
@@ -74,7 +74,7 @@ const MeetingForm = () => {
                     placeholder='Enter a description'
                     required={true}
                 />
-                <button className='create-meeting' type='submit'>create meeting</button>
+                <button className='create-meeting' type='submit'>create</button>
             </form>
         </div>
     )
