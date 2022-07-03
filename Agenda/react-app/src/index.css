@@ -10,3 +10,9 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.logout {
+    background-color: orange;
+    height: 25px;
+    color: white;
+}
