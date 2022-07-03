@@ -63,7 +63,7 @@ const Home = () => {
     <div className="home-container">
       <div className="home-header">
         <h3>Today's Date:&nbsp;{formattedDate}</h3>
-        <button onClick={() => showAddMeeting()} className='add-meeting'>Add Meeting</button>
+        <button onClick={() => showAddMeeting()} className='add-meeting'>+ Meeting</button>
       </div>
       {meetings?.map((meeting) => (
         <div key={meeting.id} className="meeting-container">
