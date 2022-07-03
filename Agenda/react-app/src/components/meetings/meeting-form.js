@@ -17,6 +17,10 @@ const MeetingForm = () => {
         e.preventDefault();
         let form = new FormData();
 
+        if (description.length > 200) {
+            setErrors(['Description must be 200 characters or less!']);
+            return;
+        }
 
         form.append('presenter_id', user.id);
         form.append('title', title);
@@ -38,6 +42,9 @@ const MeetingForm = () => {
     return (
         <div className='form-container'>
             <h1>Add a Meeting</h1>
+            {errors?.map(error => (
+                <div key={error} style={{color: 'red'}}>{error}</div>
+            ))}
             <form onSubmit={onSubmit}>
                 <label htmlFor='title'>Title</label>
                 <input
