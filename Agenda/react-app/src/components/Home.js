@@ -46,10 +46,10 @@ const Home = () => {
 
     // If using time pickers with 24 hours format, add the below line get exact hours
     if (hours < 0)
-       hours = hours + 24;
+      hours = hours + 24;
 
     return hours + " hours " + minutes + ' minutes.';
-}
+  }
 
   console.log(meetings, "meetings....");
   useEffect(() => {
@@ -67,11 +67,13 @@ const Home = () => {
       {meetings?.map((meeting) => (
         <div key={meeting.id} className="meeting-container">
           <h1>Meeting Topic: {meeting.title}</h1>
-          <h2>Description:&nbsp;{meeting.description}</h2>
-          <div>Start: {meeting.start}</div>
-          <div>End: {meeting.end}</div>
-          <div>Time Estimate:&nbsp;{timeEstimate(meeting.start, meeting.end)}</div>
-          <div>Presenter: {meeting.presenter_id.username}</div>
+          <h3>{meeting.description}</h3>
+          <div className="meeting-details">
+            <div>Start: {meeting.start}</div>
+            <div>End: {meeting.end}</div>
+            <div>Time Estimate:&nbsp;{timeEstimate(meeting.start, meeting.end)}</div>
+            <div>Presenter: {meeting.presenter_id.username}</div>
+          </div>
           {meeting.presenter_id.id === user.id ?
             <div>
               <button onClick={() => deleteMeeting(meeting.id)}>delete</button>

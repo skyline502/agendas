@@ -11,7 +11,7 @@ const EditMeetingForm = () => {
     const [title, setTitle] = useState(meeting.title);
     const [start, setStart] = useState(meeting.start);
     const [end, setEnd] = useState(meeting.end);
-    const [description, setDescription] = useState('');
+    const [description, setDescription] = useState(meeting.description);
     const [errors, setErrors] = useState([]);
     console.log(user, 'this is the user....')
 
@@ -25,6 +25,7 @@ const EditMeetingForm = () => {
         form.append('title', title);
         form.append('start', start);
         form.append('end', end)
+        form.append('description', description);
   
 
         let data = await dispatch(editAMeeting(form));

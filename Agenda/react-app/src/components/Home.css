@@ -1,8 +1,29 @@
 .meeting-container {
   display: flex;
+  width: 60vw;
   flex-direction: column;
+  justify-content: center;
+  align-items:flex-start;
   background-color: orange;
   border-radius: 5px;
-  padding: 5px;
+  padding: 15px;
   margin-bottom: 10px;
+}
+
+.meeting-container > h1 {
+  color: darkblue;
+  margin: 0;
+}
+
+.meeting-container > h2 {
+  margin-top: 0;
+}
+
+.meeting-details {
+  display: flex;
+  flex-direction: column;
+  background-color:lightgray;
+  color: darkblue;
+  border-radius: 2px;
+  padding: 5px;
 }
