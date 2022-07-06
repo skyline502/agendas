@@ -29,28 +29,6 @@ class Meeting(db.Model):
     }
 
 
-
-# class Topic(db.Model):
-#   __tablename__ = 'topics'
-
-#   id = db.Column(db.Integer, primary_key=True)
-#   title = db.Column(db.String(100), nullable=False)
-#   time_estimate = db.Column(db.Integer, nullable=False)
-#   description = db.Column(db.String(200), nullable=False)
-#   meeting_id = db.Column(db.Integer, db.ForeignKey('meetings.id', passive_deletes=True), nullable=False)
-
-#   comments = relationship('Comment', backref='topic', cascade='all,delete-orphan')
-
-#   def to_dict(self):
-#     return {
-#       'id': self.id,
-#       'title': self.title,
-#       'time_estimate': self.time_estimate,
-#       'description': self.description,
-#       'meeting_id': self.meeting_id,
-#       'comments': [{'id': comment.id, 'comment': comment.comment, 'user_id': comment.user_id, 'topic_id': comment.topic_id, 'created_at': comment.created_at, 'updated_at': comment.updated_at} for comment in self.comments]
-#     }
-
 class Comment(db.Model):
   __tablename__ = 'comments'
 
