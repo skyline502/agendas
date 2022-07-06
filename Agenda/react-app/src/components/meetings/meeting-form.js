@@ -11,7 +11,6 @@ const MeetingForm = () => {
     const [end, setEnd] = useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
-    console.log(user, 'this is the user....')
 
     const onSubmit = async (e) => {
         e.preventDefault();

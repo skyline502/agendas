@@ -7,14 +7,11 @@ const EditMeetingForm = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const meeting = useSelector(state => state.meetings.current);
-    console.log(meeting, 'this is the current meeting');
     const [title, setTitle] = useState(meeting.title);
     const [start, setStart] = useState(meeting.start);
     const [end, setEnd] = useState(meeting.end);
     const [description, setDescription] = useState(meeting.description);
     const [errors, setErrors] = useState([]);
-    console.log(user, 'this is the user....')
-
 
     const onSubmit = async(e) => {
         e.preventDefault();

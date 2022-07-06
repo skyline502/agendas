@@ -32,7 +32,6 @@ const createMeeting = (meeting) => ({
 });
 
 export const createAMeeting = (form) => async dispatch => {
-  console.log(form, 'form is in the store....')
   const response = await fetch('/api/meetings/', {
     method: 'POST',
     body: form,

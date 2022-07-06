@@ -51,14 +51,12 @@ const Home = () => {
     return hours + " hours " + minutes + ' minutes.';
   }
 
-  console.log(meetings, "meetings....");
+
   useEffect(() => {
     dispatch(getAllMeetings());
   }, [dispatch]);
 
-  // const meetings = useSelector(state => state.session.meetings);
-  console.log(user, "this is the user");
-  // console.log(meetings, 'these are the meetings')
+
   return (
     <div className="home-container">
       <div className="home-header">

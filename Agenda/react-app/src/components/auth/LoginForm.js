@@ -34,7 +34,6 @@ const LoginForm = () => {
   }
 
   const showSignUpForm = () => {
-    console.log('sign up man...')
     dispatch(setCurrentModal(SignUpForm));
     dispatch(showModal());
   }
